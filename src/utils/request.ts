@@ -13,11 +13,10 @@ function checkStatus(response) {
   }
 
   const error = new Error(response.statusText);
-  error.response = response;
   throw error;
 }
 
-export async function request(url, options) {
+export async function request(url: string, options?: object) {
   const res = await fetch(url, options)
   return parseJSON(checkStatus(res))
 }

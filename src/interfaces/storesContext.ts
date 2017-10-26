@@ -1,6 +1,6 @@
-import { AppStore } from '../containers/App'
-import { HomeStore } from '../containers/HomePage'
+import { AppStore, UserStore } from '../containers/App'
+
 export type storesContext = {
   appStore: AppStore
-  homeStore: HomeStore
+  userStore: UserStore
 }

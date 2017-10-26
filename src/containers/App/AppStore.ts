@@ -10,9 +10,7 @@ export class AppStore {
   @observable userData = {
     repositories: null
   }
-  constructor(private mobxStores: storesContext) {
-    console.log(this.mobxStores)
-  }
+  constructor(private mobxStores: storesContext) { }
 
   @computed get repos() {
     return this.userData.repositories
@@ -20,7 +18,7 @@ export class AppStore {
 
   loadRepos = async () => {
     this.loadReposStart()
-    const { username } = this.mobxStores.homeStore
+    const { username } = this.mobxStores.userStore
     const requestURL = `https://api.github.com/users/${username}/repos?type=all&sort=updated`;
     try {
       const repos = await request(requestURL)

@@ -1,19 +1,19 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react';
-import { HomeController, HomeStore } from './'
-import { AppStore } from '../App'
+import { HomeController } from './'
+import { AppStore, UserStore } from '../App'
 
 type homePageProps = {
   appStore?: AppStore,
-  homeStore?: HomeStore,
+  userStore?: UserStore,
   homeController?: HomeController
 }
 
-@inject('appStore', 'homeStore', 'homeController')
+@inject('appStore', 'userStore', 'homeController')
 @observer
 export class HomePageComponent extends React.Component<homePageProps, {}> {
   render() {
-    const { homeController, appStore, homeStore } = this.props
+    const { homeController, appStore, userStore } = this.props
     return (
       <div className="App">
         <div className="App-intro">
@@ -22,7 +22,7 @@ export class HomePageComponent extends React.Component<homePageProps, {}> {
             Show Github repositories by @
             <input
               type="text"
-              value={homeStore.username}
+              value={userStore.username}
               onChange={homeController.onUsernameChange} />
           </form>
         </div>

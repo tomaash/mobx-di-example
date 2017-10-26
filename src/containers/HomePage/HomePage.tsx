@@ -1,12 +1,10 @@
 import * as React from 'react';
 import PropTypes from 'proptypes'
-import { inject, observer, Provider } from 'mobx-react';
-import { HomeController, HomeStore, HomePageComponent } from './'
-import { AppStore } from '../App'
+import { observer, Provider } from 'mobx-react';
+import { HomeController, HomePageComponent } from './'
 
-@inject('appStore', 'homeStore')
 @observer
-export class HomePage extends React.Component<{ appStore?: AppStore, homeStore?: HomeStore }, {}> {
+export class HomePage extends React.Component<{  }, {}> {
   static contextTypes = {
     mobxStores: PropTypes.object
   }
